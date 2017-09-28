@@ -1,6 +1,7 @@
 <?php
 return [
     'live' => env('PINGPP_LIVE', false),
+    'app_id' => env('PINGPP_APP_ID', ''),
     'test_secret_key' => env('PINGPP_SK', ''),
     'live_secret_key' => env('PINGPP_TEXT_SK', ''),
     'public_key_path' => env('PINGPP_PUBLIC_KEY_PATH', ''),

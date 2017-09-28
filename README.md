@@ -28,16 +28,20 @@ class SomeClass extends Controller {
     
     public function someFunction()
     {
-    	Pingpp::Charge()->create([
-            'order_no'  => '123456789',
-		    'amount'    => '100',
-		    'app'       => array('id' => 'app_xxxxxxxxxxxxxx'),
-		    'channel'   => 'upacp',
-		    'currency'  => 'cny',
-		    'client_ip' => '127.0.0.1',
-		    'subject'   => 'Your Subject',
-		    'body'      => 'Your Body'
-        ]);
+    	\Pingpp\Charge::create(
+            array(
+                // 请求参数字段规则，请参考 API 文档：https://www.pingxx.com/api#api-c-new
+                'subject'   => 'Your Subject',
+                'body'      => 'Your Body',
+                'amount'    => $amount,                 // 订单总金额, 人民币单位：分（如订单总金额为 1 元，此处请填 100）
+                'order_no'  => $orderNo,                // 推荐使用 8-20 位，要求数字或字母，不允许其他字符
+                'currency'  => 'cny',
+                'extra'     => $extra,
+                'channel'   => $channel,                // 支付使用的第三方支付渠道取值，请参考：https://www.pingxx.com/api#api-c-new
+                'client_ip' => $_SERVER['REMOTE_ADDR'], // 发起支付请求客户端的 IP 地址，格式为 IPV4，如: 127.0.0.1
+                'app'       => array('id' => APP_ID)
+            )
+        );
     }
 }
 ```

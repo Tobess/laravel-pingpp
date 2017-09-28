@@ -30,6 +30,7 @@ class PingppServiceProvider extends ServiceProvider
     {
         $config = config('pingpp');
         $this->app->bind('pingpp', function () use ($config) {
+            Pingpp::setAppId($config['app_id']);
             Pingpp::setApiKey(
                 $config['live'] === true
                     ? $config['live_secret_key']
