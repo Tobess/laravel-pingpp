@@ -1,4 +1,5 @@
 <?php
+
 namespace Tobess\Pingpp\Facades;
 
 use Illuminate\Support\Facades\Facade;

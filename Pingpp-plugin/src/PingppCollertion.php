@@ -1,4 +1,5 @@
 <?php
+
 namespace Tobess\Pingpp;
 
 use Pingpp;

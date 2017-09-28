@@ -11,6 +11,7 @@ namespace Tobess\Pingpp;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Pingpp\Pingpp;
+
 class PingppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,6 +20,7 @@ class PingppServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = false;
+
     /**
      * Register the service provider.
      *
@@ -33,12 +35,13 @@ class PingppServiceProvider extends ServiceProvider
                     ? $config['live_secret_key']
                     : $config['test_secret_key']
             );
-            if(!empty($config['private_key_path']) && file_exists($config['private_key_path'])){
+            if (!empty($config['private_key_path']) && file_exists($config['private_key_path'])) {
                 Pingpp::setPrivateKeyPath($config['private_key_path']);
             }
             return new PingppCollertion();
         });
     }
+
     public function boot()
     {
         $this->publishes([
@@ -46,6 +49,7 @@ class PingppServiceProvider extends ServiceProvider
         ]);
         AliasLoader::getInstance()->alias('Pingpp', 'Tobess\Pingpp\Facades\Pingpp');
     }
+
     /**
      * Get the services provided by the provider.
      *
