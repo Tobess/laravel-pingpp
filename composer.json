@@ -1,0 +1,25 @@
+{
+    "name": "tobess/laravel-pingpp",
+    "description": "Pingpp wrapper for Laravel 5",
+    "keywords": ["laravel", "laravel 5", "Pingpp", "Pingxx" ],
+    "homepage": "https://github.com/tobess/laravel-pingpp",
+    "require": {
+        "php": ">=5.4.0",
+        "laravel/framework": "5.*",
+        "ext-curl": "*",
+        "illuminate/support": "~5.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tobey Ho",
+            "email": "ho@fromai.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tobess\\Pingpp\\": "Pingpp-plugin/src/",
+            "Pingpp\\" : "Pingpp/lib/"
+        }
+    }
+}
